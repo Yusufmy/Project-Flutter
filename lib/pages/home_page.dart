@@ -89,12 +89,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                Card(
-                  child: Image.network(
-                    "https://gardaanimalia.com/media/uploads/2022/02/alap-alap-kawah-768x432.webp",
-                    height: 100.0,
-                  ),
-                ),
                 ListView(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
