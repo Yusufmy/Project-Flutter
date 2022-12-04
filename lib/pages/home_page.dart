@@ -1,6 +1,10 @@
+import 'dart:ffi';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data/constant.dart';
+
+import '../models/profile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,6 +14,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late Profile profile;
+
+  @override
+  void initState() {
+    profile = Profile.fromJson(jsonProfile);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +40,8 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
-                  "Hello, Maulana",
+                Text(
+                  "Hello, ${profile.displayName}",
                   style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
                 ),
                 GridView.count(
@@ -77,12 +89,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                // Card(
-                //   child: Image.network(
-                //     "https://gardaanimalia.com/media/uploads/2022/02/alap-alap-kawah-768x432.webp",
-                //     height: 100.0,
-                //   ),
-                // ),
+                Card(
+                  child: Image.network(
+                    "https://gardaanimalia.com/media/uploads/2022/02/alap-alap-kawah-768x432.webp",
+                    height: 100.0,
+                  ),
+                ),
                 ListView(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
